@@ -321,7 +321,7 @@ def check_decimal(array, n=5):
         ret_arr.append(check_d_n_r(array[i]))
     return ret_arr
 
-def Numerical_Diff(x_values, f_values, show_working=False, up = 2):
+def Numerical_Diff(x_values, f_values, show_working=False, up = 5):
     Fwd_diff_table = DifferenceArray(f_values)
     exp = input('Which value you want to find: ')
     value_to_find = check_d_n_r(float(exp))
@@ -332,13 +332,9 @@ def Numerical_Diff(x_values, f_values, show_working=False, up = 2):
     x = check_d_n_r(round((value_to_find - a)/h, 5))
     j = 0
 
-    div = ''
-    add = '+'
-    out = []
+    div, add, out = '', '+', []
     while n:
-        temp = ''
-        tt = ''
-        add2 = ''
+        temp, tt, add2 = '', '', ''
         if j>0:
             for i in range(j):
                 mul = '*'
@@ -366,8 +362,7 @@ def Numerical_Diff(x_values, f_values, show_working=False, up = 2):
         n-=1
         
     if show_working: print('\n = ' + " + ".join(out))
-
-    return out , h, x, value_to_find
+    return out , h, a, x, value_to_find
 
 def cal_derivative(eq, h, x, at_x, orderOfDerivative=1, up=5):
     prime = "'"*orderOfDerivative
